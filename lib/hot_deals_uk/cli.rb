@@ -2,7 +2,7 @@ class HotDealsUk::CLI
   def call
     puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
     deal_options 
-    #get_input
+    get_input
     #display_deals
   end
   
@@ -14,6 +14,10 @@ class HotDealsUk::CLI
     puts "4. Hot and Trending"
     puts "5. Hot and New"
     puts "6. Newest Trending Deals"
+  end
+  
+  def get_input
+    puts "Enter a number corresponding to the options above"
   end
     
 end
