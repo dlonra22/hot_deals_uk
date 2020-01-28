@@ -37,8 +37,9 @@ class HotDealsUk::CLI
         puts "more info on New and Trending"
       when "7"
         puts "Take user to search menu"
+      else
+        "Not a valid option!"
       end
-    sleep(5)
     deal_options
     end
     puts "Thank you for checking out Hot Deals UK. Goodbye"    
