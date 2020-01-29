@@ -1,4 +1,4 @@
-class HotDealsUk::HotDeals
+class HotDealsUk::HOTDEAL
   attr_reader :title, :price, :discount
   @@alldeals = []
   
