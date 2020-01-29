@@ -15,7 +15,7 @@ class HotDealsUk::CLI
   end
   
   def get_input
-   input = gets.strip
+   input = gets.strip.downcase
     while input != "exit"
     case input
       when "1"
@@ -29,11 +29,9 @@ class HotDealsUk::CLI
       when "list"
         deal_options
       when "exit"
-        puts "Exit program"
       else
-        "Not a valid option!"
+       puts "Not a valid option! Choose List to return or exit:"
       end
-     puts "Choose List to return or exit:"
     end
     puts "Thank you for checking out Hot Deals UK. Goodbye"    
   end
