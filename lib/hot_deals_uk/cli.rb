@@ -37,5 +37,18 @@ class HotDealsUk::CLI
     end
     puts "Thank you for checking out Hot Deals UK. Goodbye"    
   end
+  
+  def display_highlights
+  end 
+
+  def display_hottest
+  end
+    
+  def display_newest
+  end
+  
+  def display_trending
+  end
+      
     
 end
