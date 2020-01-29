@@ -41,6 +41,7 @@ class HotDealsUk::CLI
   def display_highlights
     #lists the top ten deals listed as per scraped website
     puts"hotdeals instances as hightlights"
+    @deals = HotDealsUK::HotDeals.alldeals
   end 
 
   def display_hottest
