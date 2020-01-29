@@ -15,8 +15,10 @@ class HotDealsUk::CLI
   end
   
   def get_input
-   input = gets.strip.downcase
+   input = nil
     while input != "exit"
+    puts "Please enter number of option. Choose List to see options again or exit:"
+    input = gets.strip.downcase
     case input
       when "1"
         puts "Highlights"
@@ -30,7 +32,7 @@ class HotDealsUk::CLI
         deal_options
       when "exit"
       else
-       puts "Not a valid option! Choose List to return or exit:"
+       puts "Not a valid option!"
       end
     end
     puts "Thank you for checking out Hot Deals UK. Goodbye"    
