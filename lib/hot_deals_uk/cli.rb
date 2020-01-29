@@ -1,12 +1,12 @@
 class HotDealsUk::CLI
   def call
     puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
-    deal_options 
-    get_input
+   main_menu 
+   get_input
     #display_deals
   end
   
-  def deal_options
+  def main_menu
     puts "Please select from the options below "
     puts "1. Highlights"
     puts "2. Hottest Deals"
@@ -17,7 +17,7 @@ class HotDealsUk::CLI
   def get_input
    input = nil
     while input != "exit"
-    puts "Please enter number of option. Choose List to see options again or exit:"
+    puts "Please enter number of option. Type 'list' to see Main Menu or 'exit':"
     input = gets.strip.downcase
     case input
       when "1"
@@ -29,7 +29,7 @@ class HotDealsUk::CLI
       when "4"
         display_trending
       when "list"
-        deal_options
+       main_menu
       when "exit"
       else
        puts "Not a valid option!"
