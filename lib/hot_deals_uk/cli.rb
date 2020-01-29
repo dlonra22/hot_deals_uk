@@ -21,13 +21,13 @@ class HotDealsUk::CLI
     input = gets.strip.downcase
     case input
       when "1"
-        puts "Highlights"
+        display_highlights
       when "2"
-        puts "Hottest"
+        display_hottest
       when "3" 
-        puts "Newest"
+        display_newest
       when "4"
-        puts "Trending"
+        display_trending
       when "list"
         deal_options
       when "exit"
