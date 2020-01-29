@@ -39,15 +39,23 @@ class HotDealsUk::CLI
   end
   
   def display_highlights
+    #lists the top ten deals listed as per scraped website
+    puts"hotdeals instances as hightlights"
   end 
 
   def display_hottest
+    #lists the top 10 hottest highlighted deals
+    puts"hotdeals Hottest instances"
   end
     
   def display_newest
+    #lists the top 10 newest deals
+    puts"hotdeals Newest instances"
   end
   
   def display_trending
+    #lists the top ten most discussed
+    puts "hotdeals trending instances"
   end
       
     
