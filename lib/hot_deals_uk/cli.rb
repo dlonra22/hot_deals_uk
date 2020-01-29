@@ -8,39 +8,32 @@ class HotDealsUk::CLI
   
   def deal_options
     puts "Please select from the options below "
-    puts "1. Newest Deals"
+    puts "1. Highlights"
     puts "2. Hottest Deals"
-    puts "3. Trending Deals"
-    puts "4. Hot and Trending"
-    puts "5. Hot and New"
-    puts "6. Newest Trending Deals"
-    puts "7. Search Deals"
+    puts "3. Newest Deals"
+    puts "4. Trending Deals"
   end
   
   def get_input
-    input = nil
+   input = gets.strip
     while input != "exit"
-    puts "Enter a number corresponding to the options above or choose exit:"
-    input = gets.strip
-      case input
+    case input
       when "1"
-        puts "more info on newest deals"
+        puts "Highlights"
       when "2"
-        puts "more info on hottest deals"
+        puts "Hottest"
       when "3" 
-        puts "more info on Trending"
+        puts "Newest"
       when "4"
-        puts "more info on Hot and Trending"
-      when "5"
-        puts "more info on hot and new"
-      when "6"
-        puts "more info on New and Trending"
-      when "7"
-        puts "Take user to search menu"
+        puts "Trending"
+      when "list"
+        deal_options
+      when "exit"
+        puts "Exit program"
       else
         "Not a valid option!"
       end
-    deal_options
+     puts "Choose List to return or exit:"
     end
     puts "Thank you for checking out Hot Deals UK. Goodbye"    
   end
