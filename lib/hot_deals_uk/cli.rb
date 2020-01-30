@@ -28,28 +28,26 @@ class HotDealsUk::CLI
     puts "Please enter number of option or type 'exit':"
     while input != "exit"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
-    view_output = nil
     case input
       when "1"
-      view_output =  display_highlights
+        display_highlights
       when "2"
-        view_output = display_hottest
+        display_hottest
       when "3" 
-        view_output = display_newest
+        display_newest
       when "4"
-        view_output = display_trending
+        display_trending
       when "main"
-       main_menu
+        main_menu
       when "exit"
         goodbye_friend
       else
        puts "*Not a valid option!, enter number or type main or exit*"
       end
-      sender = detailed_view(view_output,input) if view_output != nil
     end
   end
   
- def detailed_view(view_output,input)
+ def detailed_view(view_output, input)
    puts "\n*Please choose the corresponding number of a deal to view more details, Or type main or exit*"
    sender = input
    input = nil
@@ -71,24 +69,20 @@ class HotDealsUk::CLI
       elsif input =='main'
               Gem.win_platform? ? (system "cls") : (system "clear")
               get_input
+      elsif input =='back'
+              Gem.win_platform? ? (system "cls") : (system "clear")
+              if sender.to_i > 0
+               sender = input
+              else
+              get_input
+              end
       elsif input == 'exit'
               goodbye_friend
-      elsif input != 'back'
+      else
          puts "invalid input"
       end #end if
-     puts "Type main, exit or back" 
-    end
-    
-    if input =='back'
-         input = sender #return to sending method/menu if user types back
-         sender = nil
-         Gem.win_platform? ? (system "cls") : (system "clear")
-         if check == nil #returns to main
-           input = nil 
-           get_input
-           binding.pry
-         end
-    end
+    puts "Type main, exit or back" 
+    end #end while
     input
   end
   
