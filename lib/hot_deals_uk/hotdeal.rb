@@ -29,7 +29,7 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_make_deals
     # makes hotdeal instances
-    self.scrape_get_deals.each do |d|
+    self.scrape_get_deals.collect do |d|
         deal = self.new
         deal.title = d.search("strong.thread-title a")
     end
