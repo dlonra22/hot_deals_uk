@@ -25,10 +25,11 @@ class HotDealsUk::HOTDEAL
     #selects individual deals from page up to a 100 deals
     i = 1
     deals = []
-    While i <101
+    while (i < 101)
      deals << self.scrape_get_page.css(".tGrid-cell")
      i+=1
-   end
+    end
+    binding.pry
   end
   
   def self.scrape_make_deals
@@ -36,10 +37,8 @@ class HotDealsUk::HOTDEAL
     self.scrape_get_deals.each do |d|
         deal = self.new
         deal.title = d.css(".thread-title").attribute("title").value
-      end
     end
-    binding.pry
   end
-  
 end
+  
     
