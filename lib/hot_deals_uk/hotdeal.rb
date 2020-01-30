@@ -1,5 +1,5 @@
 class HotDealsUk::HOTDEAL
-  attr_accessor :title, :price, :discount, :hotness, :age, :expired, :trend_rating, :wheretofind
+  attr_accessor :title, :price, :hotness, :age, :expired, :trend_rating, :wheretofind
   
   @@alldeals = []
   
@@ -27,6 +27,7 @@ class HotDealsUk::HOTDEAL
         deal.title = d.css("strong.thread-title a").text.strip
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
+        
         @@alldeals << deal
     end
     @@alldeals
