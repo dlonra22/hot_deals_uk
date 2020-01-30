@@ -43,8 +43,9 @@ class HotDealsUk::CLI
     puts"hotdeals instances as hightlights"
     @deals = HotDealsUk::HOTDEAL.alldeals
     @deals.each_with_index(1) do |d,i| 
-     if i < 11
-       puts "#{i}.#{d.title} #{d.
+     #if i < 11
+       puts "#{i}.#{d}"
+    end
   end 
 
   def display_hottest
