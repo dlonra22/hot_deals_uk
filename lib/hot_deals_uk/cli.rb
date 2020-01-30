@@ -12,7 +12,6 @@ class HotDealsUk::CLI
   end
   
   def main_menu
-    Gem.win_platform? ? (system "cls") : (system "clear")
     puts "Please select from the options below "
     puts "1. Highlights"
     puts "2. Hottest Deals"
@@ -49,14 +48,14 @@ class HotDealsUk::CLI
   def display_highlights
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
-    puts"*******HIGHLIGHTS*******"
+    puts"********************HIGHLIGHTS*****************************"
     @highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
   end 
   
  def detailed_view(input)
-   puts "Please choose the corresponding number of a deal to view more details. Or back, main or exit"
+   puts "Please choose the corresponding number of a deal to view more details, Or main or exit"
    sender = input
    input = nil
    while !( input =='exit'|| input =='main'|| input =='back')
@@ -84,13 +83,14 @@ class HotDealsUk::CLI
     end
     if input =='back'
          input = sender #return to sending method/menu if user types back
+          Gem.win_platform? ? (system "cls") : (system "clear")
     end
     input
   end
 
   def display_hottest
     #orders the list by hottest and displays the top 10.
-    puts"*******Hottest*******"
+    puts"********************HOTTEST*****************************"
     hottest = @highlights.sort_by{|d| d.hotness}.reverse!
     hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
