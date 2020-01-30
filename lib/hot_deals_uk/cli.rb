@@ -42,6 +42,7 @@ class HotDealsUk::CLI
   
   def display_highlights
     @highlights =[]
+    @highlights.clear
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*******HIGHLIGHTS*******"

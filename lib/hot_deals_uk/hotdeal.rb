@@ -21,8 +21,9 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_make_deals
     # makes hotdeal instances
+    self.reset_all
     self.scrape_get_deals.each_with_index do |d, i|
-        deal = HotDealsUk::HOTDEAL.new
+        deal = HotDealsUk::HOTDEAL.new 
         deal.title = d.css("strong.thread-title a").text.strip
         @@alldeals << deal
     end
