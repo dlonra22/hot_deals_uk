@@ -19,11 +19,11 @@ class HotDealsUk::CLI
   end
   
   def get_input
-    view_output = nil
     main_menu
     puts "Please enter number of option or type 'exit':"
     while input != "exit"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
+    view_output = nil
     case input
       when "1"
       view_output =  display_highlights
@@ -40,7 +40,7 @@ class HotDealsUk::CLI
       else
        puts "*Not a valid option!, enter number or type main or exit*"
       end
-      display_highlights(view_output,input)
+      sender = display_highlights(view_output,input) if view_output != nil
     end
   end
   
@@ -53,7 +53,7 @@ class HotDealsUk::CLI
     end
   end 
   
- def detailed_view(deal)
+ def detailed_view(view_output,input)
    puts "\n*Please choose the corresponding number of a deal to view more details, Or type main or exit*"
    sender = input
    input = nil
