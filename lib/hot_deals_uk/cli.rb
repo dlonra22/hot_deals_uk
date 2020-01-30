@@ -47,12 +47,12 @@ class HotDealsUk::CLI
          puts "#{i}. #{d.title}"
     end
     puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
-    binding.pry
-    while !( input =='exit'|| input =='main')
+   
+   while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
-      puts <<-DOC
-          #{@Highlights[input].title}
+      puts <<-DOC.gsub /^\s/,''
+           #{@Highlights[input.to_i].title}
           DOC
          #  #{@Highlights[input].hotness}
          #  Price: #{@Highlights[input].price}
