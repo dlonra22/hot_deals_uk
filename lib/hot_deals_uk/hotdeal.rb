@@ -7,7 +7,7 @@ class HotDealsUk::HOTDEAL
   @@highlights = []
  
   def self.allhot
-    self.scrape_make_hot
+    self.scrape_make_hottest
   end
   
   def self.alltrending
@@ -33,8 +33,8 @@ class HotDealsUk::HOTDEAL
   def self.scrape_get_deals
     #collection of deals
      highlights = self.scrape_get_page[0].search("div.threadGrid")
-     newest = scrape_get_page[1].search("div.threadGrid")
-     hotdeals = self.scrape_get_page{2}.search("div.threadGrid")
+     newest = self.scrape_get_page[1].search("div.threadGrid")
+     hotdeals = self.scrape_get_page[2].search("div.threadGrid")
      trending  = self.scrape_get_page[3].search("div.threadGrid")
     [highlights, newest, hotdeals, trending]
   end
