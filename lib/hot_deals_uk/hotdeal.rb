@@ -10,8 +10,8 @@ class HotDealsUk::HOTDEAL
  def self.scrape_get_page
     #gets hot deals from appropriate page
     highlights = Nokogiri::HTML(open("https://www.hotukdeals.com"))
-    newdeals =  Nokogiri::HTML(open("https://www.hotukdeals.com"))
-    hotdeals =  Nokogiri::HTML(open("https://www.hotukdeals.com"))
+    newdeals =  Nokogiri::HTML(open("https://www.hotukdeals.com/new"))
+    hotdeals =  Nokogiri::HTML(open("https://www.hotukdeals.com/hot"))
     trending =  Nokogiri::HTML(open("https://www.hotukdeals.com"))
   end
   
