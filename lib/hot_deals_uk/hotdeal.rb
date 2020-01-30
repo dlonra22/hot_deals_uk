@@ -4,11 +4,16 @@ class HotDealsUk::HOTDEAL
   @@alldeals = []
   def self.alldeals
     #returns a bunch of deals scraped from hotukdeals.com
-    self.deal_scraper
+    self.deal_collection
   end
   
-  def deal_scraper
+  def deal_collection
+
+    @@alldeals << deal_scraper
     @@alldeals << deal1 = self.new()
     @@alldeals << deal2 = self.new()
     @@alldeals
-end
+  end
+  
+  def deal_scraper
+    doc = open
