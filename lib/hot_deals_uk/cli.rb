@@ -11,7 +11,7 @@ class HotDealsUk::CLI
   end
   
   def main_menu
-    puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
+    puts "***Welcome to HOT DEALS UK. Find the hottest, newest and trending deals across the UK!***"
     puts "Please select from the options below "
     puts "1. Highlights"
     puts "2. Hottest Deals"
