@@ -31,11 +31,11 @@ class HotDealsUk::CLI
       when "list"
        main_menu
       when "exit"
+        goodbye_friend
       else
        puts "Not a valid option!"
       end
     end
-    puts "Thank you for checking out Hot Deals UK. Goodbye"    
   end
   
   def display_highlights
@@ -47,7 +47,14 @@ class HotDealsUk::CLI
          puts "#{i}. #{d.title}"
     end
     puts "Please choose the corresponding number of a deal to view more details."
-   
+    detailed_view
+   if detailed_view == "back"
+     display_highlights
+   end
+   @Highlights
+  end 
+  
+ def detailed_view
    while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
@@ -61,19 +68,18 @@ class HotDealsUk::CLI
            #{@Highlights[input.to_i].trend_rating} people are talking about this!
            Find it at: #{@Highlights[input.to_i].wheretofind}
          DOC
-      elsif input =='back'
-      elsif input =='main'
-            main_menu 
-      elsif input == 'exit'
-      else 
-       puts "invalid input"
-     end
-
+        elsif input =='back'
+        elsif input =='main'
+              main_menu 
+        elsif input == 'exit'
+              goodbye_friend
+        else 
+         puts "invalid input"
+      end #end if
      puts "Type main, exit or back" 
     end
-  end 
-  
- # detailed_view
+    input
+  end
 
   def display_hottest
     #orders the list by hottest and displays the top 10.
@@ -90,6 +96,15 @@ class HotDealsUk::CLI
     #lists the top ten most discussed
     puts "hotdeals trending instances"
   end
+  
+  def goodbye_friend
+   puts "Thank you for checking out Hot Deals UK. Till next time!"
+   sleep(2)
+   HotDealsUk::HOTDEAL.destroy_all
+   exit!
+ end
+    
+    
       
     
 end
