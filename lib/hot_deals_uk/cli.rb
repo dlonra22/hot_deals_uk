@@ -62,7 +62,6 @@ class HotDealsUk::CLI
            #{view_output[i].title}
            Hotness: #{view_output[i].hotness}
            Price: #{view_output[i].price}
-           Posted: #{view_output[i].age} ago
            #{view_output[i].trend_rating} people are talking about this!
            Find it at: #{view_output[i].wheretofind}
       DOC
@@ -87,40 +86,64 @@ class HotDealsUk::CLI
   end
   
   def display_highlights
+    menuid = 1
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************HIGHLIGHTS*****************************"
     view_output = @highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    detailed_view(view_output, 1)
+    outid = detailed_view(view_output,menuid)
+    if menuid == outid
+      display_hottest
+      outid = nil 
+    end
+    outid
   end 
 
   def display_hottest
     puts"********************HOTTEST*****************************"
+    menuid = 2
     hottest = @hottest.sort_by{|d| -d.hotness}
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
-    detailed_view(topten,2)
+    outid = detailed_view(topten,menuid)
+    if menuid == outid
+      display_hottest
+      outid = nil 
+    end
+    outid
   end
     
   def display_newest
+    menuid = 3
     puts"*********************NEWEST*****************************"
     view_output = @newest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    detailed_view(view_output,3)
+    outid = detailed_view(view_output,menuid)
+    if menuid == outid
+      display_hottest
+      outid = nil 
+    end
+    outid
   end
   
   def display_trending
+    menuid = 4
     puts"********************TRENDING*****************************"
     hottest = @highlights.sort_by{|d| -d.trend_rating}
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    detailed_view(topten,4)
+    outid = detailed_view(topten,menuid)
+    if menuid == outid
+      display_hottest
+      outid = nil 
+    end
+    outid
   end
   
   def goodbye_friend
