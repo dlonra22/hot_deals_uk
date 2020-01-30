@@ -22,14 +22,18 @@ class HotDealsUk::HOTDEAL
   end
   
   def self.scrape_get_deals
-    #selects individual deals from page
-    deals = self.scrape_get_page.css(".tGrid-cell")
+    #selects individual deals from page up to a 100 deals
+    i = 1
+    deals = []
+    While i <101
+     deals << self.scrape_get_page.css(".tGrid-cell")
+     i+=1
+   end
   end
   
   def self.scrape_make_deals
-    #makes deals but of a limited number as returns 1000's
-    self.scrape_get_deals.each_with_index do |d, i|
-      if i<100
+    # makes deals 
+    self.scrape_get_deals.each do |d|
         deal = self.new
         deal.title = d.css(".thread-title").attribute("title").value
       end
