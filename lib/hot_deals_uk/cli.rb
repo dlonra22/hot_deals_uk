@@ -71,8 +71,7 @@ class HotDealsUk::CLI
       elsif input =='back'
               Gem.win_platform? ? (system "cls") : (system "clear")
               if sender.to_i > 0
-               input = nil
-               sender = input
+               input = sender
               else
               get_input
               end
