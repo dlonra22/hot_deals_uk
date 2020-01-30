@@ -18,11 +18,11 @@ class HotDealsUk::HOTDEAL
   def self.scrape_get_page
     html = open("https://www.hotukdeals.com/")
     doc = Nokogiri::HTML(html)
-    binding.pry
   end
   
   def self.scrape_get_deals
     deals = self.scrape_get_page.css(".tGrid-cell")
+     binding.pry
   end
   
   def scrape_make_deals
