@@ -35,8 +35,9 @@ class HotDealsUk::CLI
       else
        puts "Not a valid option!"
       end
+    detailed_view(input) 
+    input = detailed_view
     end
-    display_highlights
   end
   
   def display_highlights
@@ -47,12 +48,6 @@ class HotDealsUk::CLI
     @Highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    
-    detailed_view
-   if detailed_view == "back"
-     display_highlights
-   end
-   @Highlights
   end 
   
  def detailed_view(input)
@@ -82,7 +77,7 @@ class HotDealsUk::CLI
      puts "Type main, exit or back" 
     end
     if input =='back'
-         input = sender
+         input = sender #return to sending method/menu if user types back
     end
     input
   end
