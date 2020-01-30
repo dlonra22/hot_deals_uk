@@ -40,7 +40,6 @@ class HotDealsUk::CLI
   
   def display_highlights
     #lists 10 hot deals
-    input = nil
     puts"*******HIGHLIGHTS*******"
     @Highlights = HotDealsUk::HOTDEAL.alldeals
     @Highlights.each.with_index(1) do |d, i| 
@@ -55,6 +54,7 @@ class HotDealsUk::CLI
   end 
   
  def detailed_view
+   input = nil
    while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
