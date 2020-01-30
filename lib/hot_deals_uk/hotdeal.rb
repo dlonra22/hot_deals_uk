@@ -8,12 +8,15 @@ class HotDealsUk::HOTDEAL
   end
   
   def deal_collection
-
-    @@alldeals << deal_scraper
+    #collects all hot deals from hot deals website highlights
+    @@alldeals << hot_deal_scraper
     @@alldeals << deal1 = self.new()
     @@alldeals << deal2 = self.new()
     @@alldeals
   end
   
-  def deal_scraper
-    doc = open
+  def hot_deal_scraper
+    html = open(https://www.hotukdeals.com/)
+    doc = Nokogiri::HTML(html)
+  end
+    
