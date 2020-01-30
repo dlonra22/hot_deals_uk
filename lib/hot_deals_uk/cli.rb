@@ -85,6 +85,7 @@ class HotDealsUk::CLI
       end #end if
      puts "Type main, exit or back" 
     end
+    
     if input =='back'
          input = sender #return to sending method/menu if user types back
          sender = nil
@@ -100,8 +101,8 @@ class HotDealsUk::CLI
   def display_hottest
     #orders the list by hottest and displays the top 10.
     puts"********************HOTTEST*****************************"
-    hottest = @highlights.sort_by{|d| d.hotness}.reverse!
-    hottest.each.with_index(1) do |d, i| 
+    hottest = @highlights.sort_by{|d| d.hotness.gsub( "°","")}
+    hottest.each.with_index() do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
   end
