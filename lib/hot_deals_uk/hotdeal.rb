@@ -36,7 +36,7 @@ end
     # makes hotdeal instances
     self.scrape_get_deals.each_with_index do |d, i|
         deal = HotDealsUk::HOTDEAL.new
-        deal.title = d.css("strong.thread-title a").text #.cept-tt.thread-link.linkPlain.thread-title--list
+        deal.title = d.css("strong.thread-title a").text
         puts "#{i}.#{deal.title}"
     end
     binding.pry
