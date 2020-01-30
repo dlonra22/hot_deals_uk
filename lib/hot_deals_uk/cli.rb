@@ -41,12 +41,13 @@ class HotDealsUk::CLI
   def display_highlights
     #lists 10 hot deals
     puts"*******HIGHLIGHTS*******"
-    HotDealsUk::HOTDEAL.alldeals.each.with_index(1) do |d, i| 
+    @highlihts = HotDealsUk::HOTDEAL.alldeals
+    each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    puts"Please select a product to see more detail by choosing the corresponding number"
-    
   end 
+  
+  detailed_view
 
   def display_hottest
     #orders the list by hottest and displays the top 10.
