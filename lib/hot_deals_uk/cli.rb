@@ -41,6 +41,7 @@ class HotDealsUk::CLI
   def display_highlights
     #lists 10 hot deals
     puts"*******HIGHLIGHTS*******"
+    HotDealsUk::HOTDEAL.scrape_make_deals
     @deals = HotDealsUk::HOTDEAL.alldeals
     @deals.each.with_index(1) do |d, i| 
      #if i < 11

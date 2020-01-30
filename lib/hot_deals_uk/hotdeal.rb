@@ -4,7 +4,7 @@ class HotDealsUk::HOTDEAL
   @@alldeals = []
   
   def self.alldeals
-    @@alldeals
+    self.scrape_make_deals
   end
   
  def self.scrape_get_page
@@ -27,7 +27,7 @@ class HotDealsUk::HOTDEAL
         #puts "#{i}.#{deal.title}"
         @@alldeals << deal
     end
-    binding.pry
+   
   end
   
   def self.reset_all
