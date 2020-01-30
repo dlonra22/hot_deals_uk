@@ -1,5 +1,5 @@
 class HotDealsUk::HOTDEAL
-  attr_accessor :title, :price, :hotness, :age, :trend_rating, :wheretofind
+  attr_accessor :title, :price, :hotness, :wheretofind
   
   @@alldeals = []
   
@@ -9,8 +9,8 @@ class HotDealsUk::HOTDEAL
   
  def self.scrape_get_page
     #gets hot deals from appropriate page
-    html = open("https://www.hotukdeals.com")
-    doc = Nokogiri::HTML(html)
+    highlights = Nokogiri::HTML(open("https://www.hotukdeals.com"))
+    newdeals =  Nokogiri::HTML(open("https://www.hotukdeals.com"))
   end
   
   def self.scrape_get_deals
