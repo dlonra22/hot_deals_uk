@@ -2,18 +2,23 @@ class HotDealsUk::HOTDEAL
   attr_accessor :title, :price, :discount, :hotness, :age, :expired, :trend_rating, :wheretofind
   
   @@alldeals = []
-  def self.alldeals
-    #returns a bunch of deals scraped from hotukdeals.com
-    self.deal_collection
+  
+  def initialize
+    @@all << self
   end
   
-  def deal_collection
-    #collects all hot deals from hot deals website/hot
-   # @@alldeals << hot_deal_scraper
-   # @@alldeals << deal1 = self.new()
-   # @@alldeals << deal2 = self.new()
-   # @@alldeals
+  def self.all
+    @@all
   end
+  
+  def self.reset_all
+    @@all.clear
+  end
+end
+  def self.alldeals
+  end
+  
+
   
   def self.scrape_get_page
     #gets hot deals from appropriate page
@@ -29,7 +34,7 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_make_deals
     # makes hotdeal instances
-    deals = self.scrape_get_deals.each_with_index do |d, i|
+    self.scrape_get_deals.each_with_index do |d, i|
         deal = HotDealsUk::HOTDEAL.new
         deal.title = d.css("strong.thread-title a").text #.cept-tt.thread-link.linkPlain.thread-title--list
         puts "#{i}.#{deal.title}"
