@@ -26,7 +26,7 @@ class HotDealsUk::HOTDEAL
     i = 1
     deals = []
     while (i < 101)
-     deals << self.scrape_get_page.css(".tGrid-cell")
+     deals << self.scrape_get_page.css("div.tGrid-cell")
      i+=1
     end
     deals
@@ -36,7 +36,7 @@ class HotDealsUk::HOTDEAL
     # makes deals 
     self.scrape_get_deals.each do |d|
         deal = self.new
-        deal.title = d.css(".thread-title").attribute("title").value
+        deal.title = d.css("div.threadGrid").attribute("title").value
     end
     binding.pry
   end
