@@ -22,11 +22,14 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_get_deals
     deals = self.scrape_get_page.css(".tGrid-cell")
-     binding.pry
+    binding.pry
   end
   
   def scrape_make_deals
-    
+    self.scrape_get_deals.each do |d|
+    deal = deal.new
+   deals.title = deals.css(class="cept-tt thread-link linkPlain thread-title--list").title
   end
+  
 end
     
