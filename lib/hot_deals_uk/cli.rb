@@ -87,9 +87,12 @@ class HotDealsUk::CLI
     end
     if input =='back'
          input = sender #return to sending method/menu if user types back
-         input = nil if check != 1
          sender = nil
-          Gem.win_platform? ? (system "cls") : (system "clear")
+         Gem.win_platform? ? (system "cls") : (system "clear")
+         if check != 1 #returns to main
+           input = nil 
+           get_input
+         end
     end
     input
   end
