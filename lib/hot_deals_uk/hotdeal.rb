@@ -8,7 +8,7 @@ class HotDealsUk::HOTDEAL
   end
   
   def deal_collection
-    #collects all hot deals from hot deals website highlights
+    #collects all hot deals from hot deals website/hot
    # @@alldeals << hot_deal_scraper
    # @@alldeals << deal1 = self.new()
    # @@alldeals << deal2 = self.new()
@@ -16,7 +16,7 @@ class HotDealsUk::HOTDEAL
   end
   
   def self.scrape_get_page
-    html = open("https://www.hotukdeals.com/")
+    html = open("https://www.hotukdeals.com/hot")
     doc = Nokogiri::HTML(html)
   end
   
