@@ -31,8 +31,8 @@ class HotDealsUk::HOTDEAL
     # makes hotdeal instances
     deals = self.scrape_get_deals.collect do |d|
         deal = HotDealsUk::HOTDEAL.new
-        deal.title = d.css("strong.thread-title a.cept-tt")
-          puts "#{deal.title}"
+        deal.title = d.css("strong.thread-title a.cept-tt").attribute("title").value
+        puts "#{deal.title}"
     end
     binding.pry
   end
