@@ -44,7 +44,7 @@ class HotDealsUk::CLI
     @deals = HotDealsUk::HOTDEAL.alldeals
     @deals.each.with_index(1) do |d, i| 
      #if i < 11
-       puts "#{i}. #{d}"
+       puts "#{i}. #{d.title}"
     end
   end 
 
