@@ -6,7 +6,10 @@ class HotDealsUk::CLI
   end
  
   def get_deals
-    @highlights = HotDealsUk::HOTDEAL.alldeals
+    @highlights = HotDealsUk::HOTDEAL.allhighlights
+    @hottest = HotDealsUk::HOTDEAL.allhot
+    @trenging = HotDealsUk::HOTDEAL.alltrending
+    @newest = HotDealsUk::HOTDEAL.allnew
   end
   
   def main_menu
