@@ -19,21 +19,20 @@ class HotDealsUk::CLI
   end
   
   def get_input
-    input = nil
-    sender = nil
+    view_output = nil
     main_menu
     puts "Please enter number of option or type 'exit':"
     while input != "exit"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
     case input
       when "1"
-        display_highlights
+      view_output =  display_highlights
       when "2"
-        display_hottest
+        view_output = display_hottest
       when "3" 
-        display_newest
+        view_output = display_newest
       when "4"
-        display_trending
+        view_output = display_trending
       when "main"
        main_menu
       when "exit"
@@ -41,7 +40,7 @@ class HotDealsUk::CLI
       else
        puts "*Not a valid option!, enter number or type main or exit*"
       end
-     sender = detailed_view(input) 
+      display_highlights(view_output,input)
     end
   end
   
@@ -54,7 +53,7 @@ class HotDealsUk::CLI
     end
   end 
   
- def detailed_view(input)
+ def detailed_view(deal)
    puts "\n*Please choose the corresponding number of a deal to view more details, Or type main or exit*"
    sender = input
    input = nil
@@ -70,7 +69,6 @@ class HotDealsUk::CLI
            Hotness: #{@highlights[i].hotness}
            Price: #{@highlights[i].price}
            Posted: #{@highlights[i].age} ago
-           Deal Still Available?: #{@highlights[i].expired}
            #{@highlights[i].trend_rating} people are talking about this!
            Find it at: #{@highlights[i].wheretofind}
          DOC
