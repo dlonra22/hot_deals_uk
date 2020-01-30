@@ -40,15 +40,16 @@ class HotDealsUk::CLI
   
   def display_highlights
     #lists 10 hot deals
+    input = nil
     puts"*******HIGHLIGHTS*******"
     @highlihts = HotDealsUk::HOTDEAL.alldeals
-    each.with_index(1) do |d, i| 
+    @highlihts.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
     puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
     while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
-      if input > 0 
+      if input.to_i > 0 
       puts << "DOc"
           "#{@Highlights[i].title}
            #{@Highlights[i].hotness}
@@ -63,7 +64,7 @@ class HotDealsUk::CLI
     end
   end 
   
-  detailed_view
+ # detailed_view
 
   def display_hottest
     #orders the list by hottest and displays the top 10.
