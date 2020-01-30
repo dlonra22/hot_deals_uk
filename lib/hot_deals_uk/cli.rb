@@ -44,6 +44,8 @@ class HotDealsUk::CLI
     HotDealsUk::HOTDEAL.alldeals.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
+    puts"Please select a product to see more detail by choosing the corresponding number"
+    
   end 
 
   def display_hottest
