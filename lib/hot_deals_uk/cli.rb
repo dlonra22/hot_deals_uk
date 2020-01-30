@@ -1,6 +1,5 @@
 class HotDealsUk::CLI
   def call
-    puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
    get_deals
    main_menu 
    get_input
@@ -12,6 +11,7 @@ class HotDealsUk::CLI
   end
   
   def main_menu
+    puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
     puts "Please select from the options below "
     puts "1. Highlights"
     puts "2. Hottest Deals"
@@ -39,7 +39,7 @@ class HotDealsUk::CLI
       when "exit"
         goodbye_friend
       else
-       puts "Not a valid option!, enter number or type main or exit"
+       puts "*Not a valid option!, enter number or type main or exit*"
       end
      sender = detailed_view(input) 
     end
@@ -55,13 +55,14 @@ class HotDealsUk::CLI
   end 
   
  def detailed_view(input)
-   puts "Please choose the corresponding number of a deal to view more details, Or main or exit"
+   puts "\n*Please choose the corresponding number of a deal to view more details, Or main or exit*"
    sender = input
    input = nil
    while !( input =='exit'|| input =='main'|| input =='back')
       input = gets.strip.downcase
       if input.to_i > 0 
         i = input.to_i - 1
+      Gem.win_platform? ? (system "cls") : (system "clear")
       puts <<-DOC.gsub /^\s/,' '
            #{@highlights[i].title}
            Hotness: #{@highlights[i].hotness}
