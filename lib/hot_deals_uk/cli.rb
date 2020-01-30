@@ -53,14 +53,14 @@ class HotDealsUk::CLI
       if input.to_i > 0 
       puts <<-DOC.gsub /^\s/,''
            #{@Highlights[input.to_i].title}
-          DOC
-         #  #{@Highlights[input].hotness}
-         #  Price: #{@Highlights[input].price}
-         #  Discount: #{@Highlights[input].discount}
-         #  Posted: #{@Highlights[input].age} ago
-         #  Deal Still Available?: #{@Highlights[input].expired}
-         #  #{@Highlights[input].trend_rating} people are talking about this.
-         #  Find it at: #{@Highlights[input].wheretofind}
+           Hotness: #{@Highlights[input.to_i].hotness}
+           Price: #{@Highlights[input.to_i].price}
+           Discount: #{@Highlights[input.to_i].discount}
+           Posted: #{@Highlights[input.to_i].age} ago
+           Deal Still Available?: #{@Highlights[input.to_i].expired}
+           #{@Highlights[input.to_i].trend_rating} people are talking about this.
+           Find it at: #{@Highlights[input.to_i].wheretofind}
+         DOC
       end
     end
   end 
