@@ -20,6 +20,8 @@ class HotDealsUk::CLI
   
   def get_input
     main_menu
+    sender = nil
+    input = nil
     puts "Please enter number of option or type 'exit':"
     while input != "exit"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
@@ -40,7 +42,7 @@ class HotDealsUk::CLI
       else
        puts "*Not a valid option!, enter number or type main or exit*"
       end
-      sender = display_highlights(view_output,input) if view_output != nil
+      sender = detailed_view(view_output,input) if view_output != nil
     end
   end
   
@@ -61,16 +63,16 @@ class HotDealsUk::CLI
    while !( input =='exit'|| input =='main'|| input =='back')
    check = 1
       input = gets.strip.downcase
-      if input.to_i > 0 
-        i = input.to_i - 1
+      i = input.to_i - 1
+      if ((i >=0) && (i <= view_output.length))
       Gem.win_platform? ? (system "cls") : (system "clear")
-      puts << DOC.gsub /^\s/,''
+      puts <<-DOC.gsub /^\s/,''
            #{view_output[i].title}
-           Hotness: #{@view_output[i].hotness}
-           Price: #{@view_output[i].price}
-           Posted: #{@view_output[i].age} ago
-           #{@view_output[i].trend_rating} people are talking about this!
-           Find it at: #{@view_output[i].wheretofind}
+           Hotness: #{view_output[i].hotness}
+           Price: #{view_output[i].price}
+           Posted: #{view_output[i].age} ago
+           #{view_output[i].trend_rating} people are talking about this!
+           Find it at: #{view_output[i].wheretofind}
       DOC
       elsif input =='main'
               Gem.win_platform? ? (system "cls") : (system "clear")
@@ -100,25 +102,34 @@ class HotDealsUk::CLI
     #orders the list by hottest and displays the top 10.
     puts"********************HOTTEST*****************************"
     hottest = @highlights.sort_by{|d| -d.hotness}
-    hottest.each.with_index do |d, i| 
+    topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
+    topten
   end
     
   def display_newest
-    #lists the top 10 newest deals
-    puts"hotdeals Newest instances"
+    puts "********************Newest*****************************"
+    hottest = @highlights.sort_by{|d| -d.hotness}
+    topten = hottest.each.with_index(1) do |d, i| 
+        puts "#{i}. #{d.title}" if i < 11
+    end
+    topten
   end
   
   def display_trending
-    #lists the top ten most discussed
-    puts "hotdeals trending instances"
+    puts "********************Newest*****************************"
+    hottest = @highlights.sort_by{|d| -d.hotness}
+    topten = hottest.each.with_index(1) do |d, i| 
+        puts "#{i}. #{d.title}" if i < 11
+    end
+    topten
   end
   
   def goodbye_friend
   Gem.win_platform? ? (system "cls") : (system "clear")
    puts "Thank you for checking out Hot Deals UK. Till next time!"
-   sleep(2)
+   sleep(1)
    HotDealsUk::HOTDEAL.reset_all
    exit!
  end
