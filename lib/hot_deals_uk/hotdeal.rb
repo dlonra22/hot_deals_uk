@@ -30,10 +30,11 @@ class HotDealsUk::HOTDEAL
     #makes deals but of a limited number as returns 1000's
     self.scrape_get_deals.each_with_index do |d, i|
       if i<100
-        deal = self.new
-        deal.title = d.css(class="cept-tt thread-link linkPlain thread-title--list").title
+        deal = HotDealsUk::HOTDEAL.new
+        deal.title = d.css(".cept-tt thread-link linkPlain thread-title--list").title
       end
     end
+    binding.pry
   end
   
 end
