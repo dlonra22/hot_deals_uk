@@ -18,5 +18,6 @@ class HotDealsUk::HOTDEAL
   def hot_deal_scraper
     html = open(https://www.hotukdeals.com/)
     doc = Nokogiri::HTML(html)
+    binding.pry
   end
     
