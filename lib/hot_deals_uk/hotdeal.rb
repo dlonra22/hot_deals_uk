@@ -29,10 +29,10 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_make_deals
     # makes hotdeal instances
-    deals = self.scrape_get_deals.collect do |d|
+    deals = self.scrape_get_deals.each_with_index do |d, i|
         deal = HotDealsUk::HOTDEAL.new
-        deal.title = d.css("strong.thread-title a.cept-tt").text #thread-link.linkPlain.thread-title--list
-        puts "#{deal.title}"
+        deal.title = d.css("strong.thread-title a").text #.cept-tt.thread-link.linkPlain.thread-title--list
+        puts "#{i}.#{deal.title}"
     end
     binding.pry
   end
