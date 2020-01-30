@@ -104,7 +104,7 @@ class HotDealsUk::CLI
   def display_hottest
     #orders the list by hottest and displays the top 10.
     puts"********************HOTTEST*****************************"
-    hottest = @highlights.sort_by{|d| -d.hotness}
+    hottest = @hottest.sort_by{|d| -d.hotness}
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
@@ -113,8 +113,8 @@ class HotDealsUk::CLI
     
   def display_newest
     puts "********************Newest*****************************"
-    hottest = @highlights.sort_by{|d| -d.hotness}
-    topten = hottest.each.with_index(1) do |d, i| 
+    @newest.sort_by{|d| -d.hotness}
+   @newes.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
