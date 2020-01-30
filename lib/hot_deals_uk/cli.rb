@@ -1,9 +1,14 @@
 class HotDealsUk::CLI
   def call
     puts "Welcome to hot deals uk. Find hottest, newest and trending deals across the uk"
+   get_deals
    main_menu 
    get_input
    goodbye_friend
+  end
+ 
+  def get_deals
+    @highlights = HotDealsUk::HOTDEAL.alldeals
   end
   
   def main_menu
@@ -45,7 +50,6 @@ class HotDealsUk::CLI
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*******HIGHLIGHTS*******"
-    @highlights = HotDealsUk::HOTDEAL.alldeals
     @highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
@@ -87,7 +91,7 @@ class HotDealsUk::CLI
   def display_hottest
     #orders the list by hottest and displays the top 10.
     puts"*******Hottest*******"
-    Hottest = display_highlights.sort_by{|d| d.hotness}.reverse!
+    hottest = @highlights.sort_by{|d| d.hotness}.reverse!
     hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
