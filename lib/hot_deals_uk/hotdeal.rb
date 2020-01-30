@@ -25,6 +25,7 @@ class HotDealsUk::HOTDEAL
     self.scrape_get_deals.each_with_index do |d, i|
         deal = HotDealsUk::HOTDEAL.new 
         deal.title = d.css("strong.thread-title a").text.strip
+        deal.price = d.css("span.thread-price").text.strip
         @@alldeals << deal
     end
     @@alldeals
