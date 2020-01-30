@@ -49,8 +49,13 @@ class HotDealsUk::CLI
     input = gets.strip.downcase
     if input > 0 
     puts  @Highlights[i].title
-          @Highlights.[i].hottness
-          @Highlights.[i]
+          @Highlights[i].hotness
+          @Highlights[i].discount
+          @Highlights[i].hotness
+          @Highlights[i].age
+          @Highlights[i].expired
+          @Highlights[i].trend_rating
+          @Highlights[i].wheretofind
       
   end 
   
