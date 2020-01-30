@@ -50,7 +50,7 @@ class HotDealsUk::CLI
     while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
-      puts << "DOc"
+      puts << DOc
           "#{@Highlights[i].title}
            #{@Highlights[i].hotness}
            Price: #{@Highlights[i].price}
