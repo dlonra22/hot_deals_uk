@@ -44,8 +44,8 @@ class HotDealsUk::CLI
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*******HIGHLIGHTS*******"
-    @Highlights = HotDealsUk::HOTDEAL.alldeals
-    @Highlights.each.with_index(1) do |d, i| 
+    @highlights = HotDealsUk::HOTDEAL.alldeals
+    @highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
   end 
@@ -59,14 +59,14 @@ class HotDealsUk::CLI
       if input.to_i > 0 
         i = input.to_i - 1
       puts <<-DOC.gsub /^\s/,' '
-           #{@Highlights[input.to_i-1].title}
-           Hotness: #{@Highlights[i].hotness}
-           Price: #{@Highlights[i].price}
-           Discount: #{@Highlights[i].discount}
-           Posted: #{@Highlights[i].age} ago
-           Deal Still Available?: #{@Highlights[i].expired}
-           #{@Highlights[input.i].trend_rating} people are talking about this!
-           Find it at: #{@Highlights[input.i].wheretofind}
+           #{@highlights[i].title}
+           Hotness: #{@highlights[i].hotness}
+           Price: #{@highlights[i].price}
+           Discount: #{@highlights[i].discount}
+           Posted: #{@highlights[i].age} ago
+           Deal Still Available?: #{@highlights[i].expired}
+           #{@highlights[input.i].trend_rating} people are talking about this!
+           Find it at: #{@highlights[input.i].wheretofind}
          DOC
         elsif input =='main'
               main_menu 
