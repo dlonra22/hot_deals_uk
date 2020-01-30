@@ -88,8 +88,8 @@ class HotDealsUk::CLI
     #orders the list by hottest and displays the top 10.
     puts"*******Hottest*******"
     Hottest = display_highlights.sort_by{|d| d.hotness}.reverse!
-    hottest.each.with_index(1).10.times do |d, i| 
-         puts "#{i}. #{d.title}"
+    hottest.each.with_index(1) do |d, i| 
+        puts "#{i}. #{d.title}" if i < 11
     end
   end
     
