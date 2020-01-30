@@ -36,16 +36,18 @@ class HotDealsUk::CLI
        puts "Not a valid option!"
       end
     end
+    display_highlights
   end
   
   def display_highlights
-    #lists 10 hot deals
+    #lists hot deals unorder list
+    system "clear" || system "cls"
     puts"*******HIGHLIGHTS*******"
     @Highlights = HotDealsUk::HOTDEAL.alldeals
     @Highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    puts "Please choose the corresponding number of a deal to view more details."
+    
     detailed_view
    if detailed_view == "back"
      display_highlights
@@ -53,7 +55,9 @@ class HotDealsUk::CLI
    @Highlights
   end 
   
- def detailed_view
+ def detailed_view(input)
+   puts "Please choose the corresponding number of a deal to view more details."
+   sender = input
    input = nil
    while !( input =='exit'|| input =='main'|| input =='back')
       input = gets.strip.downcase
@@ -68,15 +72,17 @@ class HotDealsUk::CLI
            #{@Highlights[input.to_i].trend_rating} people are talking about this!
            Find it at: #{@Highlights[input.to_i].wheretofind}
          DOC
-        elsif input =='back' #exits loop and passes back to forwarding method
         elsif input =='main'
               main_menu 
         elsif input == 'exit'
               goodbye_friend
-        else 
+        elsif input != 'back'
          puts "invalid input"
       end #end if
      puts "Type main, exit or back" 
+    end
+    if input =='back'
+         input = sender
     end
     input
   end
