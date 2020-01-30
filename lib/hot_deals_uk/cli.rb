@@ -64,20 +64,20 @@ class HotDealsUk::CLI
       if input.to_i > 0 
         i = input.to_i - 1
       Gem.win_platform? ? (system "cls") : (system "clear")
-      puts <<-DOC.gsub /^\s/,' '
-           #{@highlights[i].title}
-           Hotness: #{@highlights[i].hotness}
-           Price: #{@highlights[i].price}
-           Posted: #{@highlights[i].age} ago
-           #{@highlights[i].trend_rating} people are talking about this!
-           Find it at: #{@highlights[i].wheretofind}
-         DOC
-        elsif input =='main'
+      puts << DOC.gsub /^\s/,''
+           #{view_output[i].title}
+           Hotness: #{@view_output[i].hotness}
+           Price: #{@view_output[i].price}
+           Posted: #{@view_output[i].age} ago
+           #{@view_output[i].trend_rating} people are talking about this!
+           Find it at: #{@view_output[i].wheretofind}
+      DOC
+      elsif input =='main'
               Gem.win_platform? ? (system "cls") : (system "clear")
               get_input
-        elsif input == 'exit'
+      elsif input == 'exit'
               goodbye_friend
-        elsif input != 'back'
+      elsif input != 'back'
          puts "invalid input"
       end #end if
      puts "Type main, exit or back" 
