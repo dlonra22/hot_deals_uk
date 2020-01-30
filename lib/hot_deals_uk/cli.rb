@@ -45,6 +45,13 @@ class HotDealsUk::CLI
     each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
+    puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
+    input = gets.strip.downcase
+    if input > 0 
+    puts  @Highlights[i].title
+          @Highlights.[i].hottness
+          @Highlights.[i]
+      
   end 
   
   detailed_view
@@ -53,7 +60,6 @@ class HotDealsUk::CLI
     #orders the list by hottest and displays the top 10.
     puts"hotdeals Hottest instances"
     #hotdeal@deals.collect {|d| d.hottness >= 100}
-
   end
     
   def display_newest
