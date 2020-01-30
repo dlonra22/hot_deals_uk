@@ -42,7 +42,7 @@ class HotDealsUk::CLI
     #lists the top ten deals listed as per scraped website
     puts"*******HIGHLIGHTS*******"
     @deals = HotDealsUk::HOTDEAL.alldeals
-    @deals.each_with_index do |d, i| 
+    @deals.each.with_index(1) do |d, i| 
      #if i < 11
        puts "#{i}. #{d}"
     end
