@@ -42,24 +42,25 @@ class HotDealsUk::CLI
     #lists 10 hot deals
     input = nil
     puts"*******HIGHLIGHTS*******"
-    @highlihts = HotDealsUk::HOTDEAL.alldeals
-    @highlihts.each.with_index(1) do |d, i| 
+    @Highlights = HotDealsUk::HOTDEAL.alldeals
+    @Highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
     puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
+    binding.pry
     while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
-      puts <<- DOC
-          "#{@Highlights[i].title}
-           #{@Highlights[i].hotness}
-           Price: #{@Highlights[i].price}
-           Discount: #{@Highlights[i].discount}
-           Posted: #{@Highlights[i].age} ago
-           Deal Still Available?: #{@Highlights[i].expired}
-           #{@Highlights[i].trend_rating} people are talking about this.
-           Find it at: #{@Highlights[i].wheretofind}"
-      DOC
+      puts <<-DOC
+          #{@Highlights[input].title}
+          DOC
+         #  #{@Highlights[input].hotness}
+         #  Price: #{@Highlights[input].price}
+         #  Discount: #{@Highlights[input].discount}
+         #  Posted: #{@Highlights[input].age} ago
+         #  Deal Still Available?: #{@Highlights[input].expired}
+         #  #{@Highlights[input].trend_rating} people are talking about this.
+         #  Find it at: #{@Highlights[input].wheretofind}
       end
     end
   end 
