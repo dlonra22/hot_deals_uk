@@ -49,13 +49,15 @@ class HotDealsUk::CLI
     input = gets.strip.downcase
     if input > 0 
     puts  @Highlights[i].title
-          @Highlights[i].hotness
-          @Highlights[i].discount
-          @Highlights[i].hotness
-          @Highlights[i].age
-          @Highlights[i].expired
-          @Highlights[i].trend_rating
-          @Highlights[i].wheretofind
+         @Highlights[i].hotness
+         Hotness: @Highlights[i].hotness
+         Price @Highlights[i].price
+         Discount: @Highlights[i].discount
+         Posted @Highlights[i].age ago
+         Deal Still Available: @Highlights[i].expired
+         @Highlights[i].trend_rating people are talking about this
+         Find it at: @Highlights[i].wheretofind
+          
       
   end 
   
