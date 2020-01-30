@@ -46,21 +46,21 @@ class HotDealsUk::CLI
          puts "#{i}. #{d.title}"
     end
     puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
-    input = gets.strip.downcase
-    if input > 0 
-    puts << "DOc"
-        "#{@Highlights[i].title}
-         #{@Highlights[i].hotness}
-         Price: #{@Highlights[i].price}
-         Discount: #{@Highlights[i].discount}
-         Posted: #{@Highlights[i].age} ago
-         Deal Still Available?: #{@Highlights[i].expired}
-         @Highlights[i].trend_rating people are talking about this
-         Find it at: #{@Highlights[i].wheretofind}"
-    DOc
-    
-          
-      
+    while !( input =='exit'|| input =='main')
+      input = gets.strip.downcase
+      if input > 0 
+      puts << "DOc"
+          "#{@Highlights[i].title}
+           #{@Highlights[i].hotness}
+           Price: #{@Highlights[i].price}
+           Discount: #{@Highlights[i].discount}
+           Posted: #{@Highlights[i].age} ago
+           Deal Still Available?: #{@Highlights[i].expired}
+           #{@Highlights[i].trend_rating} people are talking about this.
+           Find it at: #{@Highlights[i].wheretofind}"
+      DOc
+      end
+    end
   end 
   
   detailed_view
