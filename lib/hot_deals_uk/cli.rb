@@ -42,11 +42,16 @@ class HotDealsUk::CLI
     #lists the top ten deals listed as per scraped website
     puts"hotdeals instances as hightlights"
     @deals = HotDealsUk::HOTDEAL.alldeals
+    @deals.each_with_index(1) do |d,i| 
+     if i < 11
+       puts "#{i}.#{d.title} #{d.
   end 
 
   def display_hottest
     #lists the top 10 hottest highlighted deals
     puts"hotdeals Hottest instances"
+    hotdeal@deals.collect {|d| d.hottness >= 100}
+
   end
     
   def display_newest
