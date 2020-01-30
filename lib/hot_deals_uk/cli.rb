@@ -49,15 +49,6 @@ class HotDealsUk::CLI
     end
   end
   
-  def display_highlights
-    #lists hot deals unorder list
-    Gem.win_platform? ? (system "cls") : (system "clear")
-    puts"********************HIGHLIGHTS*****************************"
-    @highlights.each.with_index(1) do |d, i| 
-         puts "#{i}. #{d.title}"
-    end
-  end 
-  
  def detailed_view(view_output,input)
    puts "\n*Please choose the corresponding number of a deal to view more details, Or type main or exit*"
    sender = input
@@ -100,37 +91,46 @@ class HotDealsUk::CLI
     end
     input
   end
+  
+  def display_highlights
+    #lists hot deals unorder list
+    Gem.win_platform? ? (system "cls") : (system "clear")
+    puts"********************HIGHLIGHTS*****************************"
+    view_output = @highlights.each.with_index(1) do |d, i| 
+         puts "#{i}. #{d.title}"
+    end
+    detailed_view(view_output)
+  end 
 
   def display_hottest
-    #orders the list by hottest and displays the top 10.
     puts"********************HOTTEST*****************************"
     hottest = @hottest.sort_by{|d| -d.hotness}
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
+    detailed_view(topten)
   end
     
   def display_newest
-    puts "********************Newest*****************************"
-    @newest.sort_by{|d| -d.hotness}
-   @newes.each.with_index(1) do |d, i| 
+    puts"*********************NEWEST*****************************"
+    view_output = @newest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    topten
+    detailed_view(view_output)
   end
   
   def display_trending
-    puts "********************Newest*****************************"
-    hottest = @highlights.sort_by{|d| -d.hotness}
+    puts"********************TRENDING*****************************"
+    hottest = @highlights.sort_by{|d| -d.trend_rating}
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    topten
+    detailed_view(topten)
   end
   
   def goodbye_friend
-  Gem.win_platform? ? (system "cls") : (system "clear")
+  Gem.win_platform? ? (system "cls") : (system "clear") #clears commandline
    puts "Thank you for checking out Hot Deals UK. Till next time!"
    sleep(1)
    HotDealsUk::HOTDEAL.reset_all
