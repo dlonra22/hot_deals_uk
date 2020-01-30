@@ -41,6 +41,7 @@ class HotDealsUk::CLI
   end
   
   def display_highlights
+    @highlights =[]
     #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*******HIGHLIGHTS*******"
@@ -65,8 +66,8 @@ class HotDealsUk::CLI
            Discount: #{@highlights[i].discount}
            Posted: #{@highlights[i].age} ago
            Deal Still Available?: #{@highlights[i].expired}
-           #{@highlights[input.i].trend_rating} people are talking about this!
-           Find it at: #{@highlights[input.i].wheretofind}
+           #{@highlights[i].trend_rating} people are talking about this!
+           Find it at: #{@highlights[i].wheretofind}
          DOC
         elsif input =='main'
               main_menu 
@@ -100,6 +101,7 @@ class HotDealsUk::CLI
   end
   
   def goodbye_friend
+  Gem.win_platform? ? (system "cls") : (system "clear")
    puts "Thank you for checking out Hot Deals UK. Till next time!"
    sleep(2)
    HotDealsUk::HOTDEAL.reset_all
