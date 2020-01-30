@@ -1,7 +1,6 @@
 class HotDealsUk::CLI
   def call
    get_deals
-   main_menu 
    get_input
    goodbye_friend
   end
@@ -20,8 +19,9 @@ class HotDealsUk::CLI
   end
   
   def get_input
-   input = nil
-   sender = nil
+    input = nil
+    sender = nil
+    main_menu
     puts "Please enter number of option or type 'exit':"
     while input != "exit"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
@@ -34,7 +34,7 @@ class HotDealsUk::CLI
         display_newest
       when "4"
         display_trending
-      when "list"
+      when "main"
        main_menu
       when "exit"
         goodbye_friend
@@ -55,10 +55,12 @@ class HotDealsUk::CLI
   end 
   
  def detailed_view(input)
-   puts "\n*Please choose the corresponding number of a deal to view more details, Or main or exit*"
+   puts "\n*Please choose the corresponding number of a deal to view more details, Or type main or exit*"
    sender = input
    input = nil
+   check = nil #checks if we have entered while
    while !( input =='exit'|| input =='main'|| input =='back')
+   check = 1
       input = gets.strip.downcase
       if input.to_i > 0 
         i = input.to_i - 1
@@ -74,9 +76,8 @@ class HotDealsUk::CLI
            Find it at: #{@highlights[i].wheretofind}
          DOC
         elsif input =='main'
-              inpu = nil
               Gem.win_platform? ? (system "cls") : (system "clear")
-              main_menu 
+              get_input
         elsif input == 'exit'
               goodbye_friend
         elsif input != 'back'
@@ -85,6 +86,7 @@ class HotDealsUk::CLI
      puts "Type main, exit or back" 
     end
     if input =='back'
+         if check = 1 input = nil 
          input = sender #return to sending method/menu if user types back
          sender = nil
           Gem.win_platform? ? (system "cls") : (system "clear")
