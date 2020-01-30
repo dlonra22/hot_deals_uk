@@ -36,7 +36,7 @@ class HotDealsUk::HOTDEAL
     # makes deals 
     self.scrape_get_deals.each do |d|
         deal = self.new
-        deal.title = d.css("div.threadGrid").attribute("title").value
+        deal.title = d.css("strong.thread-title").attribute("title").value
     end
     binding.pry
   end
