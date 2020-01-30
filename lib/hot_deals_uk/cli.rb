@@ -86,8 +86,8 @@ class HotDealsUk::CLI
      puts "Type main, exit or back" 
     end
     if input =='back'
-         if check = 1 input = nil 
          input = sender #return to sending method/menu if user types back
+         input = nil if check != 1
          sender = nil
           Gem.win_platform? ? (system "cls") : (system "clear")
     end
