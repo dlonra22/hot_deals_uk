@@ -27,7 +27,7 @@ class HotDealsUk::HOTDEAL
         deal.title = d.css("strong.thread-title a").text.strip
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
-        deal.age = 
+        deal.age = d.css("span.hide--toW3")
         @@alldeals << deal
     end
     @@alldeals

@@ -69,7 +69,6 @@ class HotDealsUk::CLI
            #{@highlights[i].title}
            Hotness: #{@highlights[i].hotness}
            Price: #{@highlights[i].price}
-           Discount: #{@highlights[i].discount}
            Posted: #{@highlights[i].age} ago
            Deal Still Available?: #{@highlights[i].expired}
            #{@highlights[i].trend_rating} people are talking about this!
