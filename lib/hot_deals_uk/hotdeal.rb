@@ -23,7 +23,7 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_get_deals
     #collection of deals
-     deals = self.scrape_get_page.css("div.tGrid-cell")
+     deals = self.scrape_get_page.css("article.thread.thread--type-list.thread--deal")
      deals
   end
   
