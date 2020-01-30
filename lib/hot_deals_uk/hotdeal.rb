@@ -28,6 +28,8 @@ class HotDealsUk::HOTDEAL
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
         deal.age = d.css("span.hide--toW3")
+        deal.wheretofind = d.css("span.text--b text--color-brandPrimary cept-merchant-name")
+        deal.trend_rating = d.css("cept-comment-link.btn space--h-3.btn--mode-boxSec.cept-comment-link-id-3396545")
         @@alldeals << deal
     end
     @@alldeals
