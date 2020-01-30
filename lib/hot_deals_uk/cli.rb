@@ -22,8 +22,8 @@ class HotDealsUk::CLI
   def get_input
    input = nil
    sender = nil
+    puts "Please enter number of option or type 'exit':"
     while input != "exit"
-    puts "Please enter number of option. Type 'list' to see Main Menu or 'exit':"
     sender.to_i > 0 ? input = sender : input = gets.strip.downcase
     case input
       when "1"
@@ -39,7 +39,7 @@ class HotDealsUk::CLI
       when "exit"
         goodbye_friend
       else
-       puts "Not a valid option!"
+       puts "Not a valid option!, enter number or type main or exit"
       end
      sender = detailed_view(input) 
     end
@@ -73,6 +73,8 @@ class HotDealsUk::CLI
            Find it at: #{@highlights[i].wheretofind}
          DOC
         elsif input =='main'
+              inpu = nil
+              Gem.win_platform? ? (system "cls") : (system "clear")
               main_menu 
         elsif input == 'exit'
               goodbye_friend
@@ -83,6 +85,7 @@ class HotDealsUk::CLI
     end
     if input =='back'
          input = sender #return to sending method/menu if user types back
+         sender = nil
           Gem.win_platform? ? (system "cls") : (system "clear")
     end
     input
