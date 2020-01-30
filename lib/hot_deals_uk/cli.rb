@@ -50,7 +50,7 @@ class HotDealsUk::CLI
     while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
       if input.to_i > 0 
-      puts << DOc
+      puts <<- DOC
           "#{@Highlights[i].title}
            #{@Highlights[i].hotness}
            Price: #{@Highlights[i].price}
@@ -59,7 +59,7 @@ class HotDealsUk::CLI
            Deal Still Available?: #{@Highlights[i].expired}
            #{@Highlights[i].trend_rating} people are talking about this.
            Find it at: #{@Highlights[i].wheretofind}"
-      DOc
+      DOC
       end
     end
   end 
