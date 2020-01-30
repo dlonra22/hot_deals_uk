@@ -26,8 +26,7 @@ class HotDealsUk::HOTDEAL
         deal.title = d.css("strong.thread-title a").text.strip
         @@alldeals << deal
     end
-  @@alldeals
-  end
+ end
   
   def self.reset_all
    @@alldeals.clear

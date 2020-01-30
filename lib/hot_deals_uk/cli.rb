@@ -57,15 +57,16 @@ class HotDealsUk::CLI
    while !( input =='exit'|| input =='main'|| input =='back')
       input = gets.strip.downcase
       if input.to_i > 0 
+        i = input.to_i - 1
       puts <<-DOC.gsub /^\s/,' '
-           #{@Highlights[input.to_i].title}
-           Hotness: #{@Highlights[input.to_i].hotness}
-           Price: #{@Highlights[input.to_i].price}
-           Discount: #{@Highlights[input.to_i].discount}
-           Posted: #{@Highlights[input.to_i].age} ago
-           Deal Still Available?: #{@Highlights[input.to_i].expired}
-           #{@Highlights[input.to_i].trend_rating} people are talking about this!
-           Find it at: #{@Highlights[input.to_i].wheretofind}
+           #{@Highlights[input.to_i-1].title}
+           Hotness: #{@Highlights[i].hotness}
+           Price: #{@Highlights[i].price}
+           Discount: #{@Highlights[i].discount}
+           Posted: #{@Highlights[i].age} ago
+           Deal Still Available?: #{@Highlights[i].expired}
+           #{@Highlights[input.i].trend_rating} people are talking about this!
+           Find it at: #{@Highlights[input.i].wheretofind}
          DOC
         elsif input =='main'
               main_menu 
