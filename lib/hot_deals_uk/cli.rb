@@ -19,7 +19,7 @@ class HotDealsUk::CLI
    sender = nil
     while input != "exit"
     puts "Please enter number of option. Type 'list' to see Main Menu or 'exit':"
-    input = gets.strip.downcase
+    sender.to_i > 0 ? input = sender : input = gets.strip.downcase
     case input
       when "1"
         display_highlights
@@ -37,7 +37,6 @@ class HotDealsUk::CLI
        puts "Not a valid option!"
       end
      sender = detailed_view(input) 
-     input = sender
     end
   end
   
@@ -52,7 +51,7 @@ class HotDealsUk::CLI
   end 
   
  def detailed_view(input)
-   puts "Please choose the corresponding number of a deal to view more details."
+   puts "Please choose the corresponding number of a deal to view more details. Or back, main or exit"
    sender = input
    input = nil
    while !( input =='exit'|| input =='main'|| input =='back')
