@@ -9,7 +9,7 @@ class HotDealsUk::HOTDEAL
   
  def self.scrape_get_page
     #gets hot deals from appropriate page
-    html = open("https://www.hotukdeals.com/hot")
+    html = open("https://www.hotukdeals.com")
     doc = Nokogiri::HTML(html)
   end
   
@@ -27,7 +27,7 @@ class HotDealsUk::HOTDEAL
         deal.title = d.css("strong.thread-title a").text.strip
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
-        
+        deal.age = 
         @@alldeals << deal
     end
     @@alldeals
