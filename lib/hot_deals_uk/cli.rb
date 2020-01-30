@@ -16,6 +16,7 @@ class HotDealsUk::CLI
   
   def get_input
    input = nil
+   sender = nil
     while input != "exit"
     puts "Please enter number of option. Type 'list' to see Main Menu or 'exit':"
     input = gets.strip.downcase
@@ -35,14 +36,14 @@ class HotDealsUk::CLI
       else
        puts "Not a valid option!"
       end
-    detailed_view(input) 
-    input = detailed_view
+     sender = detailed_view(input) 
+     input = sender
     end
   end
   
   def display_highlights
     #lists hot deals unorder list
-    system "clear" || system "cls"
+    Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*******HIGHLIGHTS*******"
     @Highlights = HotDealsUk::HOTDEAL.alldeals
     @Highlights.each.with_index(1) do |d, i| 
