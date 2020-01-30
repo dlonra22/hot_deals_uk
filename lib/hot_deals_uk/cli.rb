@@ -93,7 +93,7 @@ class HotDealsUk::CLI
     view_output = @highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    detailed_view(view_output)
+    detailed_view(view_output, 1)
   end 
 
   def display_hottest
@@ -103,7 +103,7 @@ class HotDealsUk::CLI
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
-    detailed_view(topten)
+    detailed_view(topten,2)
   end
     
   def display_newest
@@ -111,7 +111,7 @@ class HotDealsUk::CLI
     view_output = @newest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    detailed_view(view_output)
+    detailed_view(view_output,3)
   end
   
   def display_trending
@@ -120,7 +120,7 @@ class HotDealsUk::CLI
     topten = hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
-    detailed_view(topten)
+    detailed_view(topten,4)
   end
   
   def goodbye_friend
