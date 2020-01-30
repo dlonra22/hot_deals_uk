@@ -55,7 +55,7 @@ class HotDealsUk::CLI
   
  def detailed_view
    input = nil
-   while !( input =='exit'|| input =='main')
+   while !( input =='exit'|| input =='main'|| input =='back')
       input = gets.strip.downcase
       if input.to_i > 0 
       puts <<-DOC.gsub /^\s/,' '
@@ -68,7 +68,7 @@ class HotDealsUk::CLI
            #{@Highlights[input.to_i].trend_rating} people are talking about this!
            Find it at: #{@Highlights[input.to_i].wheretofind}
          DOC
-        elsif input =='back'
+        elsif input =='back' #exits loop and passes back to forwarding method
         elsif input =='main'
               main_menu 
         elsif input == 'exit'
@@ -100,11 +100,9 @@ class HotDealsUk::CLI
   def goodbye_friend
    puts "Thank you for checking out Hot Deals UK. Till next time!"
    sleep(2)
-   HotDealsUk::HOTDEAL.destroy_all
+   HotDealsUk::HOTDEAL.reset_all
    exit!
  end
-    
-    
       
     
 end
