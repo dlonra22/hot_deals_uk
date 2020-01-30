@@ -3,24 +3,11 @@ class HotDealsUk::HOTDEAL
   
   @@alldeals = []
   
-  def initialize
-    @@all << self
+  def self.self.alldeals
+    @@alldeals
   end
   
-  def self.all
-    @@all
-  end
-  
-  def self.reset_all
-    @@all.clear
-  end
-end
-  def self.alldeals
-  end
-  
-
-  
-  def self.scrape_get_page
+ def self.scrape_get_page
     #gets hot deals from appropriate page
     html = open("https://www.hotukdeals.com/hot")
     doc = Nokogiri::HTML(html)
@@ -38,8 +25,13 @@ end
         deal = HotDealsUk::HOTDEAL.new
         deal.title = d.css("strong.thread-title a").text
         puts "#{i}.#{deal.title}"
+        @@alldeals << deal
     end
     binding.pry
+  end
+  
+  def self.reset_all
+   @@alldeals.clear
   end
 end
   
