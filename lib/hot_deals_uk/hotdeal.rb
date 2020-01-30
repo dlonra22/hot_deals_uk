@@ -23,7 +23,7 @@ class HotDealsUk::HOTDEAL
   
   def self.scrape_get_deals
     #collection of deals
-     deals = self.scrape_get_page.css("article.thread.thread--type-list.thread--deal")
+     deals = self.scrape_get_page.css("div.threadGrid")
      deals
   end
   
@@ -31,7 +31,7 @@ class HotDealsUk::HOTDEAL
     # makes hotdeal instances
     self.scrape_get_deals.each do |d|
         deal = self.new
-        deal.title = d.css("strong.thread-title a").attribute("title").value
+        deal.title = d.css("div.threadGrid-title.js-contextual-message-placeholder ").attribute("title").value
     end
     binding.pry
   end
