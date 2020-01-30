@@ -29,7 +29,7 @@ class HotDealsUk::HOTDEAL
      deals << self.scrape_get_page.css(".tGrid-cell")
      i+=1
     end
-    binding.pry
+    deals
   end
   
   def self.scrape_make_deals
@@ -38,6 +38,7 @@ class HotDealsUk::HOTDEAL
         deal = self.new
         deal.title = d.css(".thread-title").attribute("title").value
     end
+    binding.pry
   end
 end
   
