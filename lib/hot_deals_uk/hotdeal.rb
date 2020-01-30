@@ -31,7 +31,7 @@ class HotDealsUk::HOTDEAL
     self.scrape_get_deals.each_with_index do |d, i|
       if i<100
         deal = self.new
-        deal.title = d.css(".cept-tt thread-link linkPlain thread-title--list").title
+        deal.title = d.css(".thread_title").title
       end
     end
     binding.pry
