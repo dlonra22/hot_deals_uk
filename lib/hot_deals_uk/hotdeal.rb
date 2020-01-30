@@ -6,9 +6,20 @@ class HotDealsUk::HOTDEAL
   @@newest = []
   @@highlights = []
  
-  def self.alldeals
-    self.scrape_make_deals
+  def self.allhot
+    self.scrape_make_hot
   end
+  
+  def self.alltrending
+    self.scrape_make_trending
+  end
+ def self.allhighlights
+    self.scrape_make_highlights
+ end
+ def self.allnew
+    self.scrape_make_newest
+ end
+
   
  def self.scrape_get_page
     #gets hot deals from appropriate page
@@ -29,7 +40,6 @@ class HotDealsUk::HOTDEAL
   end
   
   def self.scrape_make_highlights
-    # makes hotdeal instances
     self.reset_all
     self.scrape_get_deals[0].each_with_index do |d, i|
         deal = HotDealsUk::HOTDEAL.new 
