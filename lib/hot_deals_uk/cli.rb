@@ -46,7 +46,7 @@ class HotDealsUk::CLI
     @Highlights.each.with_index(1) do |d, i| 
          puts "#{i}. #{d.title}"
     end
-    puts "Please choose the corresponding number of a deal to view more details. Or type main to return to main menu or exit"
+    puts "Please choose the corresponding number of a deal to view more details."
    
    while !( input =='exit'|| input =='main')
       input = gets.strip.downcase
@@ -61,8 +61,15 @@ class HotDealsUk::CLI
            #{@Highlights[input.to_i].trend_rating} people are talking about this!
            Find it at: #{@Highlights[input.to_i].wheretofind}
          DOC
-      end
-    elsif input =='exit'
+      elsif input =='back'
+      elsif input =='main'
+            main_menu 
+      elsif input == 'exit'
+      else 
+       puts "invalid input"
+     end
+
+     puts "Type main, exit or back" 
     end
   end 
   
