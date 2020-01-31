@@ -104,7 +104,7 @@ class HotDealsUk::CLI
 
   def display_hottest
     menuid = 2
-    topten = nil
+    topten = []
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************HOTTEST*****************************"
     @hottest.each.with_index(1) do |d, i| 
@@ -123,7 +123,7 @@ class HotDealsUk::CLI
     
   def display_newest
     menuid = 3
-    topten = nil
+    topten = []
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*********************NEWEST*****************************"
    @newest.each.with_index(1) do |d, i| 
@@ -142,7 +142,7 @@ class HotDealsUk::CLI
   
   def display_trending
     menuid = 4
-    topten = nil
+    topten = []
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************TRENDING*****************************"
     @trending.each.with_index(1) do |d, i| 
