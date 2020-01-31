@@ -73,22 +73,21 @@ class HotDealsUk::CLI
       elsif input !='back'
          puts "invalid input"
       end #end if
-      if input =='back'
-              Gem.win_platform? ? (system "cls") : (system "clear")
-              if check == 1
-               input = sender
-              else
-              get_input
-              end
-          end
     puts "Type main, exit or back" 
     end #end while
+    if input =='back'
+      Gem.win_platform? ? (system "cls") : (system "clear")
+      if check == 1
+         input = sender
+       else
+       get_input
+       end
+    end
     input
   end
   
   def display_highlights
     menuid = 1
-    #lists hot deals unorder list
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************HIGHLIGHTS*****************************"
     view_output = @highlights.each.with_index(1) do |d, i| 
@@ -96,7 +95,7 @@ class HotDealsUk::CLI
     end
     outid = detailed_view(view_output,menuid)
     if menuid == outid
-      display_hottest
+      display_highlights
       outid = nil 
     end
     outid
@@ -127,7 +126,7 @@ class HotDealsUk::CLI
     end
     outid = detailed_view(view_output,menuid)
     if menuid == outid
-      display_hottest
+      display_newest
       outid = nil 
     end
     outid
@@ -142,7 +141,7 @@ class HotDealsUk::CLI
     end
     outid = detailed_view(topten,menuid)
     if menuid == outid
-      display_hottest
+      display_trending
       outid = nil 
     end
     outid
