@@ -1,8 +1,9 @@
 # HotDealsUk
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hot_deals_uk`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+WWelcome to HOT DEALS CLI GEM. With this GEM you can scrape quick useful information 
+about the best and most talked about deals in the uk.
+It scrapes the hot uk deals website on 3 pages and gives you a quick snap shot 
+of whats on offer at that particular moment. It also tells you where to find these deals. 
 
 ## Installation
 
@@ -22,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The Gem is used to give you a quick snapshot of hot and trending websites. 
 
 ## Development
 

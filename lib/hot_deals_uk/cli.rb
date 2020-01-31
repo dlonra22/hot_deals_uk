@@ -8,7 +8,7 @@ class HotDealsUk::CLI
   def get_deals
     @highlights = HotDealsUk::HOTDEAL.allhighlights
     @hottest = HotDealsUk::HOTDEAL.allhot
-    @trenging = HotDealsUk::HOTDEAL.alltrending
+    @trending = HotDealsUk::HOTDEAL.alltrending
     @newest = HotDealsUk::HOTDEAL.allnew
   end
   
@@ -104,10 +104,14 @@ class HotDealsUk::CLI
 
   def display_hottest
     menuid = 2
+    topten = nil
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************HOTTEST*****************************"
-    topten = @hottest.each.with_index(1) do |d, i| 
-        puts "#{i}. #{d.title}" if i < 11
+    @hottest.each.with_index(1) do |d, i| 
+        if i < 11
+         puts "#{i}. #{d.title}" 
+         topten << d
+        end
     end
     outid = detailed_view(topten,menuid)
     if menuid == outid
@@ -119,12 +123,16 @@ class HotDealsUk::CLI
     
   def display_newest
     menuid = 3
+    topten = nil
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*********************NEWEST*****************************"
-    view_output = @newest.each.with_index(1) do |d, i| 
-        puts "#{i}. #{d.title}" if i < 11
+   @newest.each.with_index(1) do |d, i| 
+        if i < 11
+         puts "#{i}. #{d.title}" 
+         topten << d
+        end
     end
-    outid = detailed_view(view_output,menuid)
+    outid = detailed_view(topten,menuid)
     if menuid == outid
       display_newest
       outid = nil 
@@ -134,10 +142,14 @@ class HotDealsUk::CLI
   
   def display_trending
     menuid = 4
+    topten = nil
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************TRENDING*****************************"
-    topten = @trending.each.with_index(1) do |d, i| 
-        puts "#{i}. #{d.title}" if i < 11
+    @trending.each.with_index(1) do |d, i| 
+        if i < 11
+         puts "#{i}. #{d.title}" 
+         topten << d
+        end
     end
     outid = detailed_view(topten,menuid)
     if menuid == outid
