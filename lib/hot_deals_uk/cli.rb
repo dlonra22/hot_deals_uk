@@ -106,7 +106,7 @@ class HotDealsUk::CLI
     menuid = 2
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************HOTTEST*****************************"
-    hot = @@hottest.sort_by{|h| -h.hotness}
+    hot = @hottest.sort_by{|h| -h.hotness}
     topten = hot.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
