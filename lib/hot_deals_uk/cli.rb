@@ -22,6 +22,7 @@ class HotDealsUk::CLI
   end
   
   def get_input
+    Gem.win_platform? ? (system "cls") : (system "clear")
     main_menu
     sender = nil
     input = nil
@@ -102,8 +103,9 @@ class HotDealsUk::CLI
   end 
 
   def display_hottest
-    puts"********************HOTTEST*****************************"
     menuid = 2
+    Gem.win_platform? ? (system "cls") : (system "clear")
+    puts"********************HOTTEST*****************************"
     topten = @hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
@@ -118,6 +120,7 @@ class HotDealsUk::CLI
     
   def display_newest
     menuid = 3
+    Gem.win_platform? ? (system "cls") : (system "clear")
     puts"*********************NEWEST*****************************"
     view_output = @newest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
@@ -132,6 +135,7 @@ class HotDealsUk::CLI
   
   def display_trending
     menuid = 4
+    Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************TRENDING*****************************"
     hottest = @highlights.sort_by{|d| -d.trend_rating}
     topten = hottest.each.with_index(1) do |d, i| 
@@ -148,7 +152,6 @@ class HotDealsUk::CLI
   def goodbye_friend
   Gem.win_platform? ? (system "cls") : (system "clear") #clears commandline
    puts "Thank you for checking out Hot Deals UK. Till next time!"
-   sleep(1)
    HotDealsUk::HOTDEAL.reset_all
    exit!
  end
