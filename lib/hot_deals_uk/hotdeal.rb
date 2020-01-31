@@ -45,7 +45,7 @@ class HotDealsUk::HOTDEAL
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
         deal.wheretofind = d.css("span.text--b.text--color-brandPrimary.cept-merchant-name").text.strip
-        deal.trend_rating = d.css("a.cept-comment-link btn space--h-3 btn--mode-boxSec  svg.icon.icon--comment.space--mr-2 span").text.strip
+        deal.trend_rating = d.css("a.cept-comment-link btn space--h-3 btn--mode-boxSec span").text
         deal
   end
   

@@ -56,7 +56,7 @@ class HotDealsUk::CLI
    while !( input =='exit'|| input =='main'|| input =='back')
       input = gets.strip.downcase
       i = input.to_i - 1
-      if ((i >=0) && (i <= view_output.length))
+      if ((i >=0) && (i < view_output.length))
       check = 1
       Gem.win_platform? ? (system "cls") : (system "clear")
       puts <<-DOC.gsub /^\s/,''
