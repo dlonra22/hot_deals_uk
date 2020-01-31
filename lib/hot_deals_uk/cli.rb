@@ -136,8 +136,7 @@ class HotDealsUk::CLI
     menuid = 4
     Gem.win_platform? ? (system "cls") : (system "clear")
     puts"********************TRENDING*****************************"
-    hottest = @highlights.sort_by{|d| -d.trend_rating}
-    topten = hottest.each.with_index(1) do |d, i| 
+    topten = @trending.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     outid = detailed_view(topten,menuid)
