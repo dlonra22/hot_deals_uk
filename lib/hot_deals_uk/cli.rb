@@ -104,9 +104,7 @@ class HotDealsUk::CLI
   def display_hottest
     puts"********************HOTTEST*****************************"
     menuid = 2
-    hottest = @hottest.sort_by{|d| -d.hotness}
-    topten = hottest.each.with_index(11
-    ) do |d, i| 
+    topten = @hottest.each.with_index(1) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
