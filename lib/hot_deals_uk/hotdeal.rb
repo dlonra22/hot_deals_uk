@@ -45,7 +45,7 @@ class HotDealsUk::HOTDEAL
         deal.price = d.css("span.thread-price").text.strip
         deal.hotness = d.css("span.cept-vote-temp.vote-temp.vote-temp--hot").text.strip
         deal.wheretofind = d.css("span.text--b.text--color-brandPrimary.cept-merchant-name").text.strip
-        deal.trend_rating = d.css("cept-comment-link.btn.space--h-3.btn--mode-boxSec svg span").text.strip
+        deal.trend_rating = d.css("a.cept-comment-link btn space--h-3 btn--mode-boxSec  svg.icon.icon--comment.space--mr-2 span").text.strip
         deal
   end
   
@@ -72,8 +72,7 @@ class HotDealsUk::HOTDEAL
     
   def self.scrape_make_trending
     self.scrape_get_deals[3].each_with_index do |d, i|
-        deal =  self.make_deals(d)
-        @@trending << deal
+      @@trending <<  self.make_deals(d)
     end
     @@trending
  end
