@@ -53,10 +53,10 @@ class HotDealsUk::CLI
    input = nil
    check = nil #checks if we have entered while
    while !( input =='exit'|| input =='main'|| input =='back')
-   check = 1
       input = gets.strip.downcase
       i = input.to_i - 1
       if ((i >=0) && (i <= view_output.length))
+      check = 1
       Gem.win_platform? ? (system "cls") : (system "clear")
       puts <<-DOC.gsub /^\s/,''
            #{view_output[i].title}
@@ -68,18 +68,19 @@ class HotDealsUk::CLI
       elsif input =='main'
               Gem.win_platform? ? (system "cls") : (system "clear")
               get_input
-      elsif input =='back'
+      elsif input == 'exit'
+              goodbye_friend
+      elsif input !='back'
+         puts "invalid input"
+      end #end if
+      if input =='back'
               Gem.win_platform? ? (system "cls") : (system "clear")
-              if sender.to_i > 0
+              if check == 1
                input = sender
               else
               get_input
               end
-      elsif input == 'exit'
-              goodbye_friend
-      else
-         puts "invalid input"
-      end #end if
+          end
     puts "Type main, exit or back" 
     end #end while
     input
@@ -105,7 +106,8 @@ class HotDealsUk::CLI
     puts"********************HOTTEST*****************************"
     menuid = 2
     hottest = @hottest.sort_by{|d| -d.hotness}
-    topten = hottest.each.with_index(1) do |d, i| 
+    topten = hottest.each.with_index(11
+    ) do |d, i| 
         puts "#{i}. #{d.title}" if i < 11
     end
     topten
