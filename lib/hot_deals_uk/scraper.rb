@@ -1,4 +1,4 @@
-class HotUkDeals::SCRAPER
+class HotDealsUk::SCRAPER
   
    
  def self.scrape_get_page
@@ -28,5 +28,7 @@ class HotUkDeals::SCRAPER
         deal.trend_rating = d.css("span.footerMeta-actionSlot a.cept-comment-link btn space--h-3 btn--mode-boxSec span").text
         deal
   end
+  
+end
   
   
